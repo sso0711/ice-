@@ -1,39 +1,268 @@
-{% extends 'base.html' %}
-{% load bootstrap4 %}
-{% block content %}
-{%if movie_2004 %} <!--movie_list가 있다면-->
-    <ul>
-        {%for movie in movie_1965%}<!--리스트 반복하여 순차적으로 하나씩 movie에 대입-->
-            <li>{{movie.movie_Title}}, {{movie.movie_Year}}</li>
-        {%endfor%}
-        {%for movie in movie_1978%}<!--리스트 반복하여 순차적으로 하나씩 movie에 대입-->
-            <li>{{movie.movie_Title}}, {{movie.movie_Year}}</li>
-        {%endfor%}
-        {%for movie in movie_1993%}<!--리스트 반복하여 순차적으로 하나씩 movie에 대입-->
-            <li>{{movie.movie_Title}}, {{movie.movie_Year}}</li>
-        {%endfor%}
-        {%for movie in movie_1996%}<!--리스트 반복하여 순차적으로 하나씩 movie에 대입-->
-            <li>{{movie.movie_Title}}, {{movie.movie_Year}}</li>
-        {%endfor%}
-        {%for movie in movie_1999%}<!--리스트 반복하여 순차적으로 하나씩 movie에 대입-->
-            <li>{{movie.movie_Title}}, {{movie.movie_Year}}</li>
-        {%endfor%}
-        {%for movie in movie_2000%}<!--리스트 반복하여 순차적으로 하나씩 movie에 대입-->
-            <li>{{movie.movie_Title}}, {{movie.movie_Year}}</li>
-        {%endfor%}
-        {%for movie in movie_2001%}<!--리스트 반복하여 순차적으로 하나씩 movie에 대입-->
-            <li>{{movie.movie_Title}}, {{movie.movie_Year}}</li>
-        {%endfor%}
-        {%for movie in movie_2002%}<!--리스트 반복하여 순차적으로 하나씩 movie에 대입-->
-            <li>{{movie.movie_Title}}, {{movie.movie_Year}}</li>
-        {%endfor%}
-        {%for movie in movie_2003%}<!--리스트 반복하여 순차적으로 하나씩 movie에 대입-->
-            <li>{{movie.movie_Title}}, {{movie.movie_Year}}</li>
-        {%endfor%}
-        {%for movie in movie_2004%}<!--리스트 반복하여 순차적으로 하나씩 movie에 대입-->
-            <li>{{movie.movie_Title}}, {{movie.movie_Year}}</li>
-        {%endfor%}
+<!DOCTYPE html>
+<html lang="ko">
+    <meta charset="UTF-8">
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+        <!-- 폰트설정 -->
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <!-- css와 연동시켜주기 -->
+        <style>
+            #wrap{
+                width:1200px;
+                margin: 100px 330px;
+                overflow: hidden;
+                position: absolute;
+                padding-top: 200px;
+            }
+            /* wrap 위치와 너비 등 조정 */
+            article{
+                float: left;
+                margin-left: 50px;
+                margin-bottom: 70px;
+            }
+            /*img 정렬 방향과 간격 등 조정*/
+
+            img {
+        width: 290px;
+        height: 390px;
+      }
+
+      .a img {
+        transition: all 0.2s linear;
+      }
+      .a:hover img {
+        transform: scale(1.2);
+      }
+
+      #box{
+		width:180px;
+		height:280px;
+		background-color:rgb(36, 36, 36);
+    border: 1px solid white;
+        margin: 300px 50px;
+        position: absolute;
+        overflow: hidden; 
+	}
+  /* 년도 선택 박스 설정 */
+
+        </style>
+    </head>
+
+    <body>
+        <body>
+            <div id="box">
+                <h1>Year</h1>
+                <form>
+            <label>
+                <br>
+                <input type="checkbox"> 2010년~</label>
+                <br>
+              <label>
+                <input type="checkbox"> 2005년~2010년</label>
+                <br>
+              <label>
+                <input type="checkbox"> ~2005년</label>
+                <br>
+                <br>
+                <input style="color:black;" type="submit" value="Select">
+                </form>
+                </div>
+                <!-- 박스 안의 년도 선택 요소 -->
+
+        <div class = "TVIN">
+            <div class="main_background">
+                <div class="header">
+                    <div class="searchbar">
+                        <form>
+                            <input type = "search" placeholder="Search">
+                            <span>Search</span>
+                            <!-- 검색창 -->
+                        </form>
+                    </div>
+                    <ul class ="navigation">
+                        <li><a href="login2.html">LOGIN</a></li>
+                        <li><a href="list.html">COMMUNITY</a></li>
+                        <li><a href="pop-up/pop-up.html">SELECT</a></li>
+                        <!-- 각각 글씨를 눌렀을 때 이동할 html지정 -->
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="wrap">
+            <!-- wrap으로 이름 부여 -->
+
+	{% extends 'base.html' %}
+	{% load bootstrap4 %}
+	{% block content %}
+	{%if movie_2004 %} <!--movie_list가 있다면-->
             
-    </ul>
+	{%for movie in movie_1965%}<!--리스트 반복하여 순차적으로 하나씩 movie에 대입-->
+            <span class="a">
+                <article>
+		<img
+                    src="img/7번방의선물.jpg"
+                    onclick="window.open('상세정보/7번방의선물.html','window_name','width=700,height=500,location=no,status=no,scrollbars=yes');"
+                  />        
+		<li>{{movie.movie_Title}}, {{movie.movie_Year}}</li>
+                </article>  <!-- img태그를 article태그로 감싸고 크기 조정 -->
+            </span>
+	<!-- 이미지 클릭시 열 html설정 -->
+	{%endfor%}
+
+	
+	{%for movie in movie_1978%}<!--리스트 반복하여 순차적으로 하나씩 movie에 대입-->
+            <span class="a">
+                <article>
+		<img
+                    src="img/극한직업.jpg"
+                    onclick="window.open('상세정보/극한직업.html','window_name','width=700,height=500,location=no,status=no,scrollbars=yes');"
+                  />
+		<li>{{movie.movie_Title}}, {{movie.movie_Year}}</li>
+                </article>
+            </span>
+	{%endfor%}
+
+	
+	{%for movie in movie_1993%}<!--리스트 반복하여 순차적으로 하나씩 movie에 대입-->
+            <span class="a">    
+                  <article>
+                      <img
+                    src="img/기생충.jpg"
+                    onclick="window.open('상세정보/기생충.html','window_name','width=700,height=500,location=no,status=no,scrollbars=yes');"
+                  />
+		<li>{{movie.movie_Title}}, {{movie.movie_Year}}</li>
+                  </article>
+            </span>
+	{%endfor%}
+
+
+	{%for movie in movie_1996%}<!--리스트 반복하여 순차적으로 하나씩 movie에 대입-->
+            <span class="a">
+                  <article>
+                      <img
+                    src="img/귀멸의칼날.jpg"
+                    onclick="window.open('상세정보/귀멸의칼날.html','window_name','width=700,height=500,location=no,status=no,scrollbars=yes');"
+                  />
+		<li>{{movie.movie_Title}}, {{movie.movie_Year}}</li>
+                </article>
+            </span>
+	{%endfor%}
+
+
+
+
+	{%for movie in movie_1999%}<!--리스트 반복하여 순차적으로 하나씩 movie에 대입-->
+            <span class="a">
+                  <article>
+                      <img
+                    src="img/베테랑.jpg"
+                    onclick="window.open('상세정보/베테랑.html','window_name','width=700,height=500,location=no,status=no,scrollbars=yes');"
+                  />
+		<li>{{movie.movie_Title}}, {{movie.movie_Year}}</li>
+                </article>
+            </span>
+	{%endfor%}
+
+
+
+
+	{%for movie in movie_2000%}<!--리스트 반복하여 순차적으로 하나씩 movie에 대입-->
+            <span class="a"> 
+                  <article>
+                      <img
+                    src="img/부산행.jpg"
+                    onclick="window.open('상세정보/부산행.html','window_name','width=700,height=500,location=no,status=no,scrollbars=yes');"
+                  />
+		<li>{{movie.movie_Title}}, {{movie.movie_Year}}</li>
+                </article>
+            </span>
+	{%endfor%}
+
+
+
+	{%for movie in movie_2001%}<!--리스트 반복하여 순차적으로 하나씩 movie에 대입-->
+            <span class="a">
+                  <article>
+                      <img
+                    src="img/분노의질주.jpg"
+                    onclick="window.open('상세정보/분노의질주.html','window_name','width=700,height=500,location=no,status=no,scrollbars=yes');"
+                  />
+		<li>{{movie.movie_Title}}, {{movie.movie_Year}}</li>
+                </article>
+            </span>
+	{%endfor%}
+
+
+
+	{%for movie in movie_2002%}<!--리스트 반복하여 순차적으로 하나씩 movie에 대입-->
+            <span class="a">
+                  <article>
+                      <img
+                    src="img/신과함께.jpg"
+                    onclick="window.open('상세정보/신과함께.html','window_name','width=700,height=500,location=no,status=no,scrollbars=yes');"
+                  />
+		<li>{{movie.movie_Title}}, {{movie.movie_Year}}</li>
+                </article>
+            </span>
+	{%endfor%}
+            
+
+
+	{%for movie in movie_2003%}<!--리스트 반복하여 순차적으로 하나씩 movie에 대입-->
+            <span class="a">
+                  <article>
+                      <img
+                    src="img/검사외전.jpg"
+                    onclick="window.open('상세정보/검사외전.html','window_name','width=700,height=500,location=no,status=no,scrollbars=yes');"
+                  />
+		<li>{{movie.movie_Title}}, {{movie.movie_Year}}</li>
+                </article>
+            </span>
+	{%endfor%}
+            
+            
+
+ 	{%for movie in movie_2004%}<!--리스트 반복하여 순차적으로 하나씩 movie에 대입-->
+            <span class="a">
+                  <article>
+                      <img
+                    src="img/검사외전.jpg"
+                    onclick="window.open('상세정보/검사외전.html','window_name','width=700,height=500,location=no,status=no,scrollbars=yes');"
+                  />
+		<li>{{movie.movie_Title}}, {{movie.movie_Year}}</li>
+                </article>
+            </span>        
+            {%endfor%}
+
+
 {%endif%}    
 {% endblock %}  
+
+            
+
+        </div>
+        <div style="
+        position: absolute; left:800px; top: 180px;
+        font-size:2.8em;
+        color: white;
+        font-family: impact;
+        ">GENRE
+        </div>
+        <!-- GENRE 글씨 크기와 색깔 위치 지정 후 삽입 -->
+        <div style="
+        position: absolute; left:50px; top: 16px;
+        font-size:2.4em;
+        color: white;
+        cursor: pointer;
+        "
+        onclick="location.href='TVIN.html'">
+        ICE+
+        </div>
+        <!-- 로고 크기와 위치 지정 후 클릭 시 홈으로 이동하게 설정 -->
+
+    </body>
+</html>
